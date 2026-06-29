@@ -49,6 +49,11 @@ public class Program
         
         Console.WriteLine("Goodbye!"); //<<?????? a co to?
     }
+    
+    //PODSUMOWANIE
+    /*
+     * <uzupełnić>
+     */
 
     
 
