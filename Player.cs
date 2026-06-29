@@ -17,18 +17,25 @@ public class Player : Character
     {
         bool isPlaying = true; //<tak, gram
         var input = Console.ReadKey(true); //< tak, coś kliknąłem
-        Cell cell = map.GetCell(_position.X, _position.Y); //< a tu sięznajduję
+        Cell previousCell = map.GetCell(_position.X, _position.Y); //< a tu sięznajduję
 
         if (_inputMap.ContainsKey(input.Key))
         {
             Vector2 direction = _inputMap[input.Key];
             bool moved = Move(direction, map);
 
-            if (moved)
+            if (moved) //F2 to RENAME!!!!
             {
-                cell.Leave();
-                cell.Display();
+                previousCell.Leave();
+                previousCell.Display();
                 // jeżeli ruch się udał, to opróżij komórkę na której byłeś
+                
+                Cell currentCell = map.GetCell(_position.X, _position.Y);
+                if (currentCell.Visuals == '>')
+                {
+                     map.LoadFromFile("leve2");
+                     map.Display();
+                }
             }
         }
         else
