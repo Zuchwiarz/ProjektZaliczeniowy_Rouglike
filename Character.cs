@@ -27,16 +27,16 @@ public abstract class Character : GameObject
             if (targetY >= 0 && targetY < Console.BufferHeight && targetY < map.GetRowWidth(targetY))
             {
                 Cell cell = map.GetCell(targetX, targetY);
-                if (Cell.Visuals != '▓' && !Cell.IsOccupied())
+                if (cell.Visuals != '▓' && !cell.IsOccupied())
                 {// czy nie ma na drodze ruchu ściany lub okupanta (NPC? ITEM?)
                     // i dopiero teraz możemy XD
                     _position.Y = targetY;
                     _position.X = targetX;
                     
-                    Cell.Occupy(this);
-                    if (Cell.HasItem())
+                    cell.Occupy(this);
+                    if (cell.HasItem())
                     {
-                        AddItem(Cell.TakeItem()); // po to ta funkcja xdd, jeżeli wejdzie na item to bierze ko z komórki i daje do inventory
+                        AddItem(cell.TakeItem()); // po to ta funkcja xdd, jeżeli wejdzie na item to bierze ko z komórki i daje do inventory
                     }
                     return true; //<< ruch się udał
                     

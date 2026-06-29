@@ -2,7 +2,7 @@ namespace GrTypuRouglike;
 
 public class Inventory
 {
-    private List<Item> _items; = [];
+    private List<Item> _items = [];
 
     //DODAWANIE ITEMU
     public void Add(Item item)

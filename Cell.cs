@@ -43,7 +43,7 @@ public class Cell
     }
     
     // VV a ta do opróżniania komórki po ich podniesieniu
-    public void TakeItem()
+    public Item TakeItem()
     {
         Item item = Item;
         Item = null;
