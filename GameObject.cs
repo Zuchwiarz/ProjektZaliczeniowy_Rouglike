@@ -22,7 +22,7 @@ public abstract class GameObject
 
     public void Display(Vector2 screenPosition)
     {
-        Console.SetCursorPosition(screenPosition.X, screenPosition.Y);
+        Console.SetCursorPosition(screenPosition.X, screenPosition.Y); //<< !! czemu??? błąd???
         Console.Write(_avatar);
         // 1. ruszamy kursor
         // 2. piszemy GameObject na jego pozycji
