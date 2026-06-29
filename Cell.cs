@@ -69,6 +69,8 @@ public class Cell
         //dowidzenia
     }
     
+    
+    //▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
     /* PODSUMOWAWSZY:
      > dużo różnych funkcji
      ..........
