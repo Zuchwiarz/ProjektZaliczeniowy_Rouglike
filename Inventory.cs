@@ -32,7 +32,7 @@ public class Inventory
         for (int y = 0; y < _items.Count + 1; y++)
         {
             Console.SetCursorPosition(x,y);
-            //Console.WriteLine("                        ");
+            Console.WriteLine("                        ");
             //^ kasujemy widok
         }
     }

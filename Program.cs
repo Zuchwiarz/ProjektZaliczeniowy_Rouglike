@@ -12,8 +12,8 @@ public class Program
         Dictionary<ConsoleKey, Vector2> directions = new Dictionary<ConsoleKey, Vector2>();
         directions[ConsoleKey.A] = new Vector2(-1, 0);
         directions[ConsoleKey.D] = new Vector2(1, 0);
-        directions[ConsoleKey.W] = new Vector2(0, 1);
-        directions[ConsoleKey.S] = new Vector2(0, -1);
+        directions[ConsoleKey.W] = new Vector2(0, -1);
+        directions[ConsoleKey.S] = new Vector2(0, 1);
         
         //WCZYTYWANIE MAPY
             // 1. najpierw stworzymy CEll
@@ -47,7 +47,7 @@ public class Program
             }
         }// hmm, takie proste, a takie trudne do zrozumienia to TakeTurn
         
-        Console.WriteLine("Goodbye!"); //<<?????? a co to?
+        Console.WriteLine("Goodbye!"); //<<?????? a co to? 
     }
     
     //PODSUMOWANIE
