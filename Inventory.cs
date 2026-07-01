@@ -2,7 +2,7 @@ namespace GrTypuRouglike;
 
 public class Inventory
 {
-    private List<Item> _items; = [];
+    private List<Item> _items = [];
 
     //DODAWANIE ITEMU
     public void Add(Item item)
@@ -32,7 +32,7 @@ public class Inventory
         for (int y = 0; y < _items.Count + 1; y++)
         {
             Console.SetCursorPosition(x,y);
-            Console.WriteLine("                        ");
+            //Console.WriteLine("                        ");
             //^ kasujemy widok
         }
     }
