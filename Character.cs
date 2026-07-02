@@ -24,7 +24,7 @@ public abstract class Character : GameObject
 
         if (targetY >= 0 && targetY < Console.BufferHeight && targetY < map.GetHeight())
         {// dużo zabezpieczeń, ponad zero, mniejsze niż konsola i niż wysokość mapy
-            if (targetY >= 0 && targetY < Console.BufferHeight && targetY < map.GetRowWidth(targetY))
+            if (targetX >= 0 && targetY < Console.BufferWidth && targetX < map.GetRowWidth(targetY))
             {
                 Cell cell = map.GetCell(targetX, targetY);
                 if (cell.Visuals != '▓' && !cell.IsOccupied())

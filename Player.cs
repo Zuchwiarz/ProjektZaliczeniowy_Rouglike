@@ -17,6 +17,7 @@ public class Player : Character
     {
         bool isPlaying = true; //<tak, gram
         var input = Console.ReadKey(true); //< tak, coś kliknąłem
+        Console.SetCursorPosition(_position.X, _position.Y);
         Cell previousCell = map.GetCell(_position.X, _position.Y); //< a tu sięznajduję
 
         if (_inputMap.ContainsKey(input.Key))
@@ -33,7 +34,7 @@ public class Player : Character
                 Cell currentCell = map.GetCell(_position.X, _position.Y);
                 if (currentCell.Visuals == '>')
                 {
-                     map.LoadFromFile("leve2");
+                     map.LoadFromFile("level2");
                      map.Display();
                 }
             }

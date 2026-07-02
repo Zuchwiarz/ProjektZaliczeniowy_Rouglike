@@ -56,7 +56,7 @@ public class Map
     //ZNAJDŹ KOMÓRKĘ konkretną
     public Cell GetCell(int x, int y)
     {
-        return _cells[x][y];
+        return _cells[y][x];
     }
 
     //WYSOKOŚĆ MAPY
