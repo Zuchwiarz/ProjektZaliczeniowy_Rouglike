@@ -39,3 +39,5 @@ public abstract class GameObject
      *  Czyli wszystko czego potrzebuje każda rzecz. Mądre.
      */
 }
+
+//Test
