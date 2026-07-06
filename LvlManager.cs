@@ -3,11 +3,11 @@ namespace GrTypuRouglike;
 public class LvlManager
 {
     public Map currentMap;
-    public List<Character> NPCs;
+    public List<Character> NPCs = new List<Character>();
         public LvlManager(Map map)
         {
            // currentMap = map;
-           Map currentMap = map;
+           currentMap = map;
         }
     
 
@@ -18,7 +18,7 @@ public class LvlManager
         currentMap.LoadFromFile(lvlNAME);
         
         //Items spawn on LVL
-        Item iten = new Item('*', new Vector2(1, 2), currentMap);
+        Item item = new Item('*', new Vector2(1, 2), currentMap);
         
 
         

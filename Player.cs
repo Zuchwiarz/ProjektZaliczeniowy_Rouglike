@@ -4,6 +4,8 @@ namespace GrTypuRouglike;
 
 public class Player : Character
 {
+    int currentLVLnumber = 1;
+    
     private readonly Dictionary<ConsoleKey, Vector2> _inputMap;
 
     public Player(char avatar, Vector2 startingPosition, Map map, Dictionary<ConsoleKey, Vector2> inputMap) : base(avatar, startingPosition, map)
@@ -34,8 +36,11 @@ public class Player : Character
                 Cell currentCell = map.GetCell(_position.X, _position.Y);
                 if (currentCell.Visuals == '>')
                 {
-                     map.LoadFromFile("level2");
+                    LvlManager lvlManager = new LvlManager(map);
+                    lvlManager.LoadLvl($"level{currentLVLnumber+1}");
+                     
                      map.Display();
+                     currentLVLnumber++;
                 }
             }
         }
