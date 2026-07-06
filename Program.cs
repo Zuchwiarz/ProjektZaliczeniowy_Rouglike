@@ -5,6 +5,7 @@ namespace GrTypuRouglike;
 
 public class Program
 {
+   
     public static void Main()
     {
         Console.CursorVisible = false;
@@ -15,33 +16,26 @@ public class Program
         directions[ConsoleKey.W] = new Vector2(0, -1);
         directions[ConsoleKey.S] = new Vector2(0, 1);
         
-        //WCZYTYWANIE MAPY
-            // 1. najpierw stworzymy CEll
-            // 2. A potem Map()
         Map map = new Map();
-        map.LoadFromFile("level1");
+        LvlManager lvlManager = new LvlManager(map);
+        lvlManager.LoadLvl("level1");
         
-        Item iten = new Item('*', new Vector2(1, 2), map);
-        //^^ wydaje mi się że Program to nie jest dobre miejsce na rozrzucanie itemków po mapie
-        // !! dobrym będzie stworzyć jakąś funkcję w Map, albo dictionary MappItemToss
-        //który będzie przypisywał nazwęmapy, a potem grupę itemów które należy po niej losowo rozrzucić
+         //tworzymy bohatera (nie co lvl, chcemy tego samego przez całą grę więć tworzymy raz)
+         Vector2 startingPosition = new Vector2(4, 2); //<< spawn point na pierwszym lvlu
+         Character hero = new Player('@', startingPosition, map, directions); //<< oto on
+         
+         bool isPlaying = true;
 
-
-        bool isPlaying = true;
-        //POZYCJA STARTOWA - GRACZ
-        Vector2 startingPosition = new Vector2(4, 2);
-        Character hero = new Player('@', startingPosition, map, directions);
-        startingPosition.X = 1;
-        startingPosition.Y = 1;
-
-        Character anotherHero = new Npc('$', startingPosition, map);
-        List<Character> characters = [hero, anotherHero]; //<lista postaci na poziomie
-
-        map.Display(); //<< no tak, trza wyświetlić mapę xD
+         List<Character> characters = [hero];
 
         while (isPlaying)
         {
             foreach (Character character in characters)
+            {
+                isPlaying = character.TakeTurn(map);
+            }
+
+            foreach (Character character in lvlManager.NPCs)
             {
                 isPlaying = character.TakeTurn(map);
             }

@@ -5,8 +5,8 @@ public class Npc: Character
     List<Vector2> availableDirections = [
         new Vector2(-1, 0), // w lewo
         new Vector2(1, 0), // w prawo
-        new Vector2(0, -1), // w górę
-        new Vector2(0, 1) // w dół
+        //new Vector2(0, -1), // w górę
+       // new Vector2(0, 1) // w dół
     ];
 
     public Npc(char avatar, Vector2 startingPosition, Map map) : base(avatar, startingPosition, map)
