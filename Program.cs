@@ -21,7 +21,7 @@ public class Program
         Map map = new Map();
         map.LoadFromFile("level1");
         
-        Item iten = new Item('*', new Vector2(14, 5), map);
+        Item iten = new Item('*', new Vector2(1, 2), map);
         //^^ wydaje mi się że Program to nie jest dobre miejsce na rozrzucanie itemków po mapie
         // !! dobrym będzie stworzyć jakąś funkcję w Map, albo dictionary MappItemToss
         //który będzie przypisywał nazwęmapy, a potem grupę itemów które należy po niej losowo rozrzucić
