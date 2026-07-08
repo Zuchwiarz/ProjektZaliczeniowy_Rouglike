@@ -37,5 +37,10 @@ public class Inventory
         }
     }
     
+    public bool Has(char itemAvatar)
+    {
+        return _items.Any(item => item.GetAvatar() == itemAvatar);
+    }
+    
     
 }
