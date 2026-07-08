@@ -42,5 +42,18 @@ public class Inventory
         return _items.Any(item => item.GetAvatar() == itemAvatar);
     }
     
+    public void RemoveItemByAvatar(char c)
+    {
+        for (var index = 0; index < _items.Count; index++)
+        {
+            var item = _items[index];
+            if (item.GetAvatar() == c)
+            {
+                _items.Remove(item);
+                break;
+            }
+        }
+    }
+    
     
 }

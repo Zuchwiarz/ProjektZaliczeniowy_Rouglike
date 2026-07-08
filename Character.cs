@@ -27,9 +27,14 @@ public abstract class Character : GameObject
             if (targetX >= 0 && targetY < Console.BufferWidth && targetX < map.GetRowWidth(targetY))
             {
                 Cell cell = map.GetCell(targetX, targetY);
-                if (cell.Visuals == '▓' || cell.IsOccupied() || (cell.Visuals == '|' && !_inventory.Has('*')))
+                if (cell.Visuals == '▓' || cell.IsOccupied() || (cell.Visuals == '|' || cell.Visuals == '-' && !_inventory.Has('*')))//Symbol '|' i '-' to drzwi
                 {
                     return false;
+                }
+                
+                if (cell.Visuals == '|' || cell.Visuals == '-' && _inventory.Has('*'))
+                {
+                    RemoveItemByAvatar('*');
                 }
                 
                 // czy nie ma na drodze ruchu ściany lub okupanta (NPC? ITEM?)
@@ -49,6 +54,11 @@ public abstract class Character : GameObject
 
         return false; // <wymagania nie spełnione, ruch się nie udał
         
+    }
+    
+    private void RemoveItemByAvatar(char c)
+    {
+        _inventory.RemoveItemByAvatar(c);
     }
 
     public void AddItem(Item item)
