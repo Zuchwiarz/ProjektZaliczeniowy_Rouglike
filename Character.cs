@@ -27,7 +27,7 @@ public abstract class Character : GameObject
             if (targetX >= 0 && targetY < Console.BufferWidth && targetX < map.GetRowWidth(targetY))
             {
                 Cell cell = map.GetCell(targetX, targetY);
-                if (cell.Visuals == '▓' || cell.IsOccupied() || (cell.Visuals == '|' || cell.Visuals == '-' && !_inventory.Has('*')))//Symbol '|' i '-' to drzwi
+                if (cell.Visuals == '▓' || cell.IsOccupied() || (cell.Visuals == '|' && !_inventory.Has('*') || (cell.Visuals == '-' && !_inventory.Has('*')))) //Symbol '|' i '-' to drzwi
                 {
                     return false;
                 }
