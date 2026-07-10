@@ -18,26 +18,51 @@ public class LvlManager
         currentMap.LoadFromFile(lvlNAME);
         
         //Items spawn on LVL
-        Item item = new Item('*', new Vector2(1, 2), currentMap);
+        switch (lvlNAME)
+        {
+            case "level1":
+                Item itm = new Item('*', new Vector2(15, 12), currentMap);
+                break;
+            case "level2":
+                // Item itemm = new Item('*', new Vector2(4, 5), currentMap);
+                
+                break;
+            case "level3":
+                Item item = new Item('*', new Vector2(2, 16), currentMap);
+                
+                break;
+        }
         
 
         
 
         //NPC's spawn/teleports on LVL
-        Vector2 startingPosition = new Vector2(4, 2);
         
-        startingPosition.X = 1;
-        startingPosition.Y = 1;
-
+        
         //lista npctów dla każdego lvla
-        // VV tworzymy NPC
+        
+        // VV tworzymy  wszystkich NPC
+        Vector2 startingPosition = new Vector2(1, 1);
         Character npc1 = new HorizontalNpc('$', startingPosition, currentMap);
-        //dodaje nnpc do listy npctów
         NPCs.Add(npc1);
         Vector2 verticalStart = new Vector2(8, 5);
-
         Character npc2 = new VecticalNPC('&', verticalStart, currentMap);
         NPCs.Add(npc2);
+        
+        switch (lvlNAME)
+        {
+            case "level2":
+                
+                // wyczyścić komórkę .GetCell
+                
+                npc1._position = new Vector2(3, 3);
+                npc2._position = new Vector2(10, 5);
+                
+                
+                break;
+        }
+        //dodaje nnpc do listy npctów
+
 
         currentMap.Display();
     }

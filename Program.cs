@@ -43,6 +43,7 @@ public class Program
 
         while (isPlaying)
         {
+            // switch za każdy level1
             foreach (Character character in characters)
             {
                 isPlaying = character.TakeTurn(map, characters);
@@ -55,7 +56,7 @@ public class Program
 
             foreach (Character character in lvlManager.NPCs)
             {
-                isPlaying = character.TakeTurn(map, characters);
+                isPlaying = character.TakeTurn(map, characters); // pilnoać ile npc
             }
 
 
