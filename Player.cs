@@ -42,9 +42,7 @@ public class Player : Character
                     LvlManager lvlManager = new LvlManager(map);
                 if (currentCell.Visuals == '>')
                 {
-                    //TODO: mapa musi się kasować i tworzyć nowa
-                    //TODO: npcty nowe się nie poruszają, trzeba czyścić listę i tworzyć nową
-                    //TODO: oprócz tego dodać różne poziomy do lvl managera i ilość npctów
+                    
                     //można też zrobić prościej i ich po prostu teleportowąc, nie kasować, idke
                     lvlManager.LoadLvl($"level{currentLVLnumber+1}");
                      
@@ -63,7 +61,15 @@ public class Player : Character
                     int x = 30;
                     int y = 5;
                     Console.SetCursorPosition(x,y);
-                    Console.Write("YOU WON!");
+                    if (Program.playTime > 70)
+                    {
+                        Console.Write("TOO SLOW! YOU LOST!");
+                    }
+                    else
+                    {
+                        Console.Write("YOU WON!!!");
+                        
+                    }
                     Console.SetCursorPosition(x -4,y + 1);
                     Console.WriteLine($"Your time: {Program.playTime}");
                     Console.SetCursorPosition(x -11,y + 2);
