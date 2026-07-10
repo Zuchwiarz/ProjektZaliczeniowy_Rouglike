@@ -64,12 +64,56 @@ public class Player : Character
                     int y = 5;
                     Console.SetCursorPosition(x,y);
                     Console.Write("YOU WON!");
-                    Console.SetCursorPosition(x -5,y + 1);
+                    Console.SetCursorPosition(x -4,y + 1);
                     Console.WriteLine($"Your time: {Program.playTime}");
-                    Console.SetCursorPosition(x -8,y + 2);
+                    Console.SetCursorPosition(x -11,y + 2);
                     Console.WriteLine("[press ENTER to close the game]");
                     Console.ReadLine();
                     Environment.Exit(0);
+
+                }
+                //RIDDLE
+                if (currentCell.Visuals == '?')
+                {
+                    
+                    
+                    isPlaying = false;
+                    //lvlManager.NPCs.Clear();
+                    //characters.Clear();
+                    
+                    int x = 30;
+                    int y = 0;
+                    Console.SetCursorPosition(x,y);
+                    Console.Write("It is greater than God and more evil than the devil. The poor have it, the rich need it and if you eat it you’ll die. What is it?");
+                    string correctAnswer = "nothing";
+                    string answer;
+                    do
+                    {
+                        Console.SetCursorPosition(x,y + 1);
+                     answer = Console.ReadLine();
+                     if (answer != correctAnswer)
+                     {
+                        Console.SetCursorPosition(x,y + 1);
+                        Console.WriteLine("                        ");
+                        
+                        Console.SetCursorPosition(x,y + 2);
+                        Console.Write("WRONG ANSWER! Try again!");
+                         
+                     }
+                     else
+                     {
+                         Console.SetCursorPosition(x,y);
+                         Console.WriteLine("                                                                                                                                             ");
+                         Console.SetCursorPosition(x,y + 1);
+                         Console.WriteLine("                        ");
+                         Console.SetCursorPosition(x,y + 2);
+                         Console.WriteLine("                        ");
+                         break;
+                     }
+                        
+                    } while (answer != correctAnswer);
+                    
+                    
 
                 }
             }
