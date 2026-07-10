@@ -5,9 +5,10 @@ namespace GrTypuRouglike;
 
 public class Program
 {
-   
+    
     public static void Main()
     {
+        
         Console.CursorVisible = false;
         //STEROWANIE - przypisanie vektorów do klawiszy
         Dictionary<ConsoleKey, Vector2> directions = new Dictionary<ConsoleKey, Vector2>();
@@ -25,20 +26,29 @@ public class Program
          Character hero = new Player('@', startingPosition, map, directions); //<< oto on
          
          bool isPlaying = true;
-
+         
+        
          List<Character> characters = [hero];
 
         while (isPlaying)
         {
             foreach (Character character in characters)
             {
-                isPlaying = character.TakeTurn(map);
+                isPlaying = character.TakeTurn(map, characters);
+                
+                if (!isPlaying)
+                {
+                    break;
+                }
             }
 
             foreach (Character character in lvlManager.NPCs)
             {
-                isPlaying = character.TakeTurn(map);
+                isPlaying = character.TakeTurn(map, characters);
             }
+
+
+            
         }// hmm, takie proste, a takie trudne do zrozumienia to TakeTurn
         
         Console.WriteLine("Goodbye!"); //<<?????? a co to? 

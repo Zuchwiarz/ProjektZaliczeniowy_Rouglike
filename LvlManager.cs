@@ -23,7 +23,7 @@ public class LvlManager
 
         
 
-        //NPC's spawn on LVL
+        //NPC's spawn/teleports on LVL
         Vector2 startingPosition = new Vector2(4, 2);
         
         startingPosition.X = 1;

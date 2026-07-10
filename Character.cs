@@ -66,5 +66,6 @@ public abstract class Character : GameObject
         _inventory.Add(item);
     }
 
-    public abstract bool TakeTurn(Map map); //<< hmmm????????????
+    public abstract bool TakeTurn(Map map, List<Character> characters); //<< hmmm????????????
+    
 }

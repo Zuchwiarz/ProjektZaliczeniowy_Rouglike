@@ -14,7 +14,7 @@ public class Npc: Character
         //konstruktor
     }
 
-    public override bool TakeTurn(Map map) //<< muszę ogarnąć co to OVERRIDE ;_;
+    public override bool TakeTurn(Map map, List<Character> characters) //<< muszę ogarnąć co to OVERRIDE ;_;
     {
         //to jest po prostu to, jak wygląda TAKE TURN, tura w wykonaniu NPCta
         Console.SetCursorPosition(_position.X, _position.Y);
