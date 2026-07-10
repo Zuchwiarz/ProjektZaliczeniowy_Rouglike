@@ -31,9 +31,13 @@ public class LvlManager
 
         //lista npctów dla każdego lvla
         // VV tworzymy NPC
-        Character npc1 = new Npc('$', startingPosition, currentMap);
+        Character npc1 = new HorizontalNpc('$', startingPosition, currentMap);
         //dodaje nnpc do listy npctów
         NPCs.Add(npc1);
+        Vector2 verticalStart = new Vector2(8, 5);
+
+        Character npc2 = new VecticalNPC('&', verticalStart, currentMap);
+        NPCs.Add(npc2);
 
         currentMap.Display();
     }

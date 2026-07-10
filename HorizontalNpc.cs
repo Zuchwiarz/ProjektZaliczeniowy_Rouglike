@@ -1,20 +1,27 @@
 namespace GrTypuRouglike;
 
-public class Npc: Character
+public class HorizontalNpc: Character
 {
-    List<Vector2> availableDirections = [
+   private readonly List<Vector2> availableDirections = [
         new Vector2(-1, 0), // w lewo
         new Vector2(1, 0), // w prawo
         //new Vector2(0, -1), // w górę
        // new Vector2(0, 1) // w dół
     ];
+    private Vector2 direction;
 
-    public Npc(char avatar, Vector2 startingPosition, Map map) : base(avatar, startingPosition, map)
+    private void ChooseRandomDirection()
     {
-        //konstruktor
+        int index = Random.Shared.Next(availableDirections.Count);
+        direction = availableDirections[index];
     }
 
-    public override bool TakeTurn(Map map, List<Character> characters) //<< muszę ogarnąć co to OVERRIDE ;_;
+    public HorizontalNpc(char avatar, Vector2 startingPosition, Map map) : base(avatar, startingPosition, map)
+    {
+       ChooseRandomDirection();
+    }
+
+    public override bool TakeTurn(Map map, List<Character> characters)  
     {
         //to jest po prostu to, jak wygląda TAKE TURN, tura w wykonaniu NPCta
         Console.SetCursorPosition(_position.X, _position.Y);
@@ -22,12 +29,15 @@ public class Npc: Character
         
         //  ta sekcja to poruszanie się npcta, jego zasady
         //opuszczanie komórek, wyświetlanie itd.
-        int index = Random.Shared.Next(availableDirections.Count); // << KIERUNEK LOSOWY
-        Vector2 direction = availableDirections[index];
+       
         if (Move(direction, map))
         {
             cell.Leave();
             cell.Display();
+        }
+        else
+        {
+            ChooseRandomDirection();
         }
         Display();
         return true;
