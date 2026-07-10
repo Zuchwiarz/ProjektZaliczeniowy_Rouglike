@@ -1,14 +1,25 @@
 ﻿using System.IO.Pipes;
 using System.Numerics;
+using System.Timers;
 
 namespace GrTypuRouglike;
 
 public class Program
 {
-    
+    public static int playTime;
     public static void Main()
     {
+        //======TIMER=======
+        System.Timers.Timer timer = new System.Timers.Timer();   
+        timer.Interval = 1000;
+        timer.Elapsed += OnTimedEvent;
+        timer.AutoReset = true;
+        timer.Enabled = true;
+
         
+        
+        
+        //==================
         Console.CursorVisible = false;
         //STEROWANIE - przypisanie vektorów do klawiszy
         Dictionary<ConsoleKey, Vector2> directions = new Dictionary<ConsoleKey, Vector2>();
@@ -54,6 +65,7 @@ public class Program
         Console.WriteLine("Goodbye!"); //<<?????? a co to? 
     }
     
+    
     //PODSUMOWANIE
     /*
      * <uzupełnić>
@@ -61,4 +73,10 @@ public class Program
 
     
 
+    private static void OnTimedEvent(object sender, EventArgs eventArgs)
+    {
+        //dodaj sekundę
+        playTime += 1;
+        
+    }
 }

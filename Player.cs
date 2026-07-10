@@ -7,6 +7,7 @@ public class Player : Character
     public bool gameEND;
     int currentLVLnumber = 1;
     
+    
     private readonly Dictionary<ConsoleKey, Vector2> _inputMap;
 
     public Player(char avatar, Vector2 startingPosition, Map map, Dictionary<ConsoleKey, Vector2> inputMap) : base(avatar, startingPosition, map)
@@ -64,7 +65,11 @@ public class Player : Character
                     Console.SetCursorPosition(x,y);
                     Console.Write("YOU WON!");
                     Console.SetCursorPosition(x -5,y + 1);
-                    Console.WriteLine("Your time: ");
+                    Console.WriteLine($"Your time: {Program.playTime}");
+                    Console.SetCursorPosition(x -8,y + 2);
+                    Console.WriteLine("[press ENTER to close the game]");
+                    Console.ReadLine();
+                    Environment.Exit(0);
 
                 }
             }
