@@ -35,6 +35,7 @@ public abstract class Character : GameObject
                 if (cell.Visuals == '|' || cell.Visuals == '-' && _inventory.Has('*'))
                 {
                     RemoveItemByAvatar('*');
+                    cell.Visuals = '.';
                 }
                 
                 // czy nie ma na drodze ruchu ściany lub okupanta (NPC? ITEM?)
