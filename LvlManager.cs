@@ -53,8 +53,6 @@ public class LvlManager
         {
             case "level2":
                 
-                // wyczyścić komórkę .GetCell
-                
                 npc1._position = new Vector2(3, 3);
                 npc2._position = new Vector2(10, 5);
                 
@@ -65,5 +63,8 @@ public class LvlManager
 
 
         currentMap.Display();
+        
+        
+        //switch na lvlname setuje starting possition, czy tam current position
     }
 }

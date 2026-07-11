@@ -5,18 +5,21 @@ namespace GrTypuRouglike;
 public class Player : Character
 {
     public bool gameEND;
-    int currentLVLnumber = 1;
+    private int currentLVLnumber = 1;
+     LvlManager _lvlManager;
     
     
     private readonly Dictionary<ConsoleKey, Vector2> _inputMap;
 
-    public Player(char avatar, Vector2 startingPosition, Map map, Dictionary<ConsoleKey, Vector2> inputMap) : base(avatar, startingPosition, map)
+    public Player(char avatar, Vector2 startingPosition, Map map, Dictionary<ConsoleKey, Vector2> inputMap, LvlManager lvlManager ) : base(avatar, startingPosition, map)
     {
         _inputMap = inputMap;
         // aha? po prostu przypisujemy graczowi sterowanie?
+        _lvlManager = lvlManager;
     }
-
     
+
+   
 
     //ROBIENIE TURY
     public override bool TakeTurn(Map map, List<Character> characters)
@@ -39,12 +42,11 @@ public class Player : Character
                 
                 Cell currentCell = map.GetCell(_position.X, _position.Y);
                 //NEXT LVL STAIRCASE
-                    LvlManager lvlManager = new LvlManager(map);
                 if (currentCell.Visuals == '>')
                 {
                     
                     //można też zrobić prościej i ich po prostu teleportowąc, nie kasować, idke
-                    lvlManager.LoadLvl($"level{currentLVLnumber+1}");
+                    _lvlManager.LoadLvl($"level{currentLVLnumber+1}");
                      
                      map.Display();
                      currentLVLnumber++;

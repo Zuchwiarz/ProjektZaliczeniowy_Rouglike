@@ -34,7 +34,7 @@ public class Program
         
          //tworzymy bohatera (nie co lvl, chcemy tego samego przez całą grę więć tworzymy raz)
          Vector2 startingPosition = new Vector2(4, 2); //<< spawn point na pierwszym lvlu
-         Character hero = new Player('@', startingPosition, map, directions); //<< oto on
+         Character hero = new Player('@', startingPosition, map, directions,lvlManager); //<< oto on
          
          bool isPlaying = true;
          
