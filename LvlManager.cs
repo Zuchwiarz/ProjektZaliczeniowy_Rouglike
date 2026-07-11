@@ -4,18 +4,32 @@ public class LvlManager
 {
     public Map currentMap;
     public List<Character> NPCs = new List<Character>();
-        public LvlManager(Map map)
+
+    public LvlManager(Map map)
+    {
+        // currentMap = map;
+        currentMap = map;
+        ;
+    }
+
+
+        private void TeleportNpc(Character npc, Vector2 newPosition)
         {
-           // currentMap = map;
-           currentMap = map;
+            Cell previousCell = currentMap.GetCell(npc._position.X, npc._position.Y);
+            previousCell.Leave();
+            previousCell.Display();
+            npc._position = newPosition;
+            Cell currentCell = currentMap.GetCell(npc._position.X, npc._position.Y);
+            currentCell.Occupy(npc);
+            npc.Display();
         }
-    
 
     public void LoadLvl(string lvlNAME) //w playerze będzie rosnąć o 1
     {
         
         
         currentMap.LoadFromFile(lvlNAME);
+       
         
         //Items spawn on LVL
         switch (lvlNAME)
@@ -42,23 +56,36 @@ public class LvlManager
         //lista npctów dla każdego lvla
         
         // VV tworzymy  wszystkich NPC
-        Vector2 startingPosition = new Vector2(1, 1);
-        Character npc1 = new HorizontalNpc('$', startingPosition, currentMap);
-        NPCs.Add(npc1);
-        Vector2 verticalStart = new Vector2(8, 5);
-        Character npc2 = new VecticalNPC('&', verticalStart, currentMap);
-        NPCs.Add(npc2);
-        
-        switch (lvlNAME)
+        if (lvlNAME == "level1")
         {
-            case "level2":
-                
-                npc1._position = new Vector2(3, 3);
-                npc2._position = new Vector2(10, 5);
-                
-                
-                break;
+            Vector2 startingPosition = new Vector2(1, 1);
+            Character npc1 = new HorizontalNpc('$', startingPosition, currentMap);
+            NPCs.Add(npc1);
+            Vector2 startingPosition2 = new Vector2(2, 1);
+            Character npc2 = new HorizontalNpc('$', startingPosition2, currentMap);
+            NPCs.Add(npc2);
+            Vector2 verticalStart = new Vector2(8, 5);
+            Character npc3 = new VecticalNPC('&', verticalStart, currentMap);
+            NPCs.Add(npc3);
+            Vector2 verticalStart2 = new Vector2(9, 5);
+            Character npc4 = new VecticalNPC('&', verticalStart2, currentMap);
+            NPCs.Add(npc4);
+            
         }
+        else
+        {
+            switch (lvlNAME)
+            {
+                case "level2":
+                    Character npc = NPCs[0];
+                TeleportNpc(NPCs[0], new Vector2(15, 12));
+                // do uzupełnienia.
+                
+                    break;
+            }
+        }
+        
+       
         //dodaje nnpc do listy npctów
 
 
