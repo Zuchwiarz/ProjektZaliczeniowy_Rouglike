@@ -23,11 +23,10 @@ public class LvlManager
             case "level1":
                 Item itm = new Item('*', new Vector2(15, 12), currentMap);
                 break;
-            //case "level2":
-                //Item itemmm = new Item('*', new Vector2(31, 5), currentMap);
-                //Item itemm = new Item('*', new Vector2(47, 13), currentMap);
+            case "level2":
+                // Item itemm = new Item('*', new Vector2(4, 5), currentMap);
                 
-                //break;
+                break;
             case "level3":
                 Item item = new Item('*', new Vector2(2, 16), currentMap);
                 
@@ -56,8 +55,8 @@ public class LvlManager
                 
                 // wyczyścić komórkę .GetCell
                 
-                npc1._position = new Vector2(5, 5);
-                //npc2._position = new Vector2(35, 9);
+                npc1._position = new Vector2(3, 3);
+                npc2._position = new Vector2(10, 5);
                 
                 
                 break;
