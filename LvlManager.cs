@@ -35,8 +35,10 @@ public class LvlManager
         switch (lvlNAME)
         {
             case "level1":
+                Random r = new Random();
+                int rInt = r.Next(47, 51);
                 Item itm = new Item('*', new Vector2(9, 19), currentMap);
-                Item ite = new Item('*', new Vector2(50, 17), currentMap);
+                Item ite = new Item('*', new Vector2(rInt, 17), currentMap);
                 Item iten = new Item('*', new Vector2(32, 9), currentMap);
                 break;
             case "level2":
@@ -60,6 +62,8 @@ public class LvlManager
         // VV tworzymy  wszystkich NPC
         if (lvlNAME == "level1")
         {
+            Random r = new Random();
+            int rInt = r.Next(9, 13);
             Vector2 startingPosition = new Vector2(9, 22);
             Character npc1 = new HorizontalNpc('$', startingPosition, currentMap);
             NPCs.Add(npc1);
@@ -69,7 +73,7 @@ public class LvlManager
             Vector2 startingPosition3 = new Vector2(12, 20);
             Character npc3 = new HorizontalNpc('$', startingPosition3, currentMap);
             NPCs.Add(npc3);
-            Vector2 verticalStart = new Vector2(9, 9);
+            Vector2 verticalStart = new Vector2(9, rInt);
             Character npc4 = new VecticalNPC('&', verticalStart, currentMap);
             NPCs.Add(npc4);
             Vector2 verticalStart2 = new Vector2(13, 9);
