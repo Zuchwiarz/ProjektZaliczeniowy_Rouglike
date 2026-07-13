@@ -33,9 +33,9 @@ public class Program
         lvlManager.LoadLvl("level1");
         
          //tworzymy bohatera (nie co lvl, chcemy tego samego przez całą grę więć tworzymy raz)
-         Vector2 startingPosition = new Vector2(9, 5); //<< spawn point na pierwszym lvlu
+         Vector2 startingPosition = new Vector2(9, 6); //<< spawn point na pierwszym lvlu
          Character hero = new Player('@', startingPosition, map, directions,lvlManager); //<< oto on
-         
+         hero.Display();
          bool isPlaying = true;
          
         
@@ -57,6 +57,8 @@ public class Program
             foreach (Character character in lvlManager.NPCs)
             {
                 isPlaying = character.TakeTurn(map, characters); // pilnoać ile npc
+                
+                
             }
 
 
@@ -65,6 +67,7 @@ public class Program
         
         Console.WriteLine("Goodbye!"); //<<?????? a co to? 
     }
+    
     
     
     //PODSUMOWANIE

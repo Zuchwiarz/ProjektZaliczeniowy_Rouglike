@@ -4,6 +4,8 @@ public abstract class Character : GameObject
 {
     protected Inventory _inventory; //<< stworzyć inventory
 
+    public bool imHero;
+    public int life;
     public Character(char avatar, Vector2 startingPosition, Map map) : base(avatar, startingPosition)
     {
         _inventory = new Inventory(); //<< każdy charakter ma swoje

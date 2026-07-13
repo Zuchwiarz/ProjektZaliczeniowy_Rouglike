@@ -7,7 +7,8 @@ public class Player : Character
     public bool gameEND;
     private int currentLVLnumber = 1;
      LvlManager _lvlManager;
-     public int life = 3;
+     
+     
     
     
     private readonly Dictionary<ConsoleKey, Vector2> _inputMap;
@@ -17,7 +18,14 @@ public class Player : Character
         _inputMap = inputMap;
         // aha? po prostu przypisujemy graczowi sterowanie?
         _lvlManager = lvlManager;
+        imHero = true;
+        life = 3;
     }
+
+    // public void lifeLoss()
+    // {
+    //     life -= 1;
+    // }
     
 
    
@@ -126,8 +134,8 @@ public class Player : Character
 
                 }
                 
-                //for testing dmg
-                if (currentCell.Visuals == 'm')
+                //LAVA
+                if (currentCell.Visuals == '~')
                 {
                     life -= 1;
                 }
@@ -146,7 +154,7 @@ public class Player : Character
                     Console.SetCursorPosition(x,y);
                     
                     
-                        Console.Write("Zombies ate you! YOU ARE DEAD!");
+                        Console.Write("You've burned in lava! YOU ARE DEAD!");
                     
                     
                     
