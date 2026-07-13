@@ -72,7 +72,7 @@ public class Player : Character
                     int x = 30;
                     int y = 5;
                     Console.SetCursorPosition(x,y);
-                    if (Program.playTime > 180)
+                    if (Program.playTime > 240)
                     {
                         Console.Write("TOO SLOW! YOU LOST!");
                     }
