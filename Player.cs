@@ -7,6 +7,7 @@ public class Player : Character
     public bool gameEND;
     private int currentLVLnumber = 1;
      LvlManager _lvlManager;
+     public int life = 3;
     
     
     private readonly Dictionary<ConsoleKey, Vector2> _inputMap;
@@ -63,7 +64,7 @@ public class Player : Character
                     int x = 30;
                     int y = 5;
                     Console.SetCursorPosition(x,y);
-                    if (Program.playTime > 70)
+                    if (Program.playTime > 180)
                     {
                         Console.Write("TOO SLOW! YOU LOST!");
                     }
@@ -122,6 +123,37 @@ public class Player : Character
                     } while (answer != correctAnswer);
                     
                     
+
+                }
+                
+                //for testing dmg
+                if (currentCell.Visuals == 'm')
+                {
+                    life -= 1;
+                }
+                
+                //DEATH from dmg
+                if (life <= 0)
+                {
+                    Console.Clear();
+                    //Program.Main().; jak zniszczyć npcta? i bohatera
+                    
+                    isPlaying = false;
+                    //lvlManager.NPCs.Clear();
+                    //characters.Clear();
+                    int x = 30;
+                    int y = 5;
+                    Console.SetCursorPosition(x,y);
+                    
+                    
+                        Console.Write("Zombies ate you! YOU ARE DEAD!");
+                    
+                    
+                    
+                    Console.SetCursorPosition(x -11,y + 2);
+                    Console.WriteLine("[press ENTER to close the game]");
+                    Console.ReadLine();
+                    Environment.Exit(0);
 
                 }
             }
